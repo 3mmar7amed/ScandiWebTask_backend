@@ -1,6 +1,8 @@
 <?php
 
 namespace app\api;
+
+use app\backend\controller\productController;
 use Exception;
 
 class Router
@@ -22,7 +24,9 @@ class Router
     public function resolve()
     {
         $url = $_SERVER['REQUEST_URI'] ?? '/';
-        call_user_func($this->Routes[$url]) ;
+        $controller = new productController() ; 
+        $controller->getProducts() ; 
+        //call_user_func($this->Routes[$url]) ;
     }
 
 }
