@@ -21,7 +21,7 @@ class Router
 
     public function resolve()
     {
-        $url = $_SERVER['PATH_INFO'] ?? '/';
+        $url = $_SERVER['REQUEST_URI'] ?? '/';
         call_user_func($this->Routes[$url]) ;
     }
 
