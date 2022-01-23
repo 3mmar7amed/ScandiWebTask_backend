@@ -16,7 +16,7 @@ class Database
     public function __construct()
     {
 
-        $dsn = "pgsql:host=$this->host ; dbname =$this->db" ; 
+        $dsn = "mysql:host=$this->host ; dbname =$this->db" ; 
 
         $this->pdo = new \PDO($dsn, $this->username, $this->pass);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
