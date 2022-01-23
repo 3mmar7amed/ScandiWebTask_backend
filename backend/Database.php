@@ -12,14 +12,13 @@ class Database
     private $username = "b57d2b8c89c004" ;
     public string $pass = '3146e78b' ;
     private $db = "heroku_35850e58f8c52bf" ; 
-    private $port = 3306  ;
 
     public function __construct()
     {
 
-        $dsn = "mysql:host=$this->host ; dbname =$this->db" ; 
+        $dsn = "pgsql:host=$this->host ; dbname =$this->db" ; 
 
-        $this->pdo = new PDO($dsn, $this->username, $this->pass);
+        $this->pdo = new \PDO($dsn, $this->username, $this->pass);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this ;
     }
