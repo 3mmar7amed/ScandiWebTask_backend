@@ -26,6 +26,7 @@ class products
     }
 
     public function setProducts($product){
+        
         $this->name = $product['Name'] ;
         $this->SKU = $product['SKU'];
         $this->type = $product['Type'] ;

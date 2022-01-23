@@ -11,14 +11,16 @@ class Database
     private $host = "us-cdbr-east-05.cleardb.net" ; 
     private $username = "b57d2b8c89c004" ;
     public string $pass = '3146e78b' ;
-    private $db = "heroku_35850e58f8c52bf" ; 
+    private $dbname = "heroku_35850e58f8c52bf" ; 
 
     public function __construct()
     {
 
-        $dsn = "mysql:host=$this->host ; dbname =$this->db" ; 
+        //$dsn = "mysql:host=$this->host ; dbname =$this->db" ; 
 
-        $this->pdo = new \PDO($dsn, $this->username, $this->pass);
+        $this->pdo = new PDO("mysql:host=$this->host; dbname=$this->dbname;", $this->username, $this->pass);
+
+        //$this->pdo = new \PDO($dsn, $this->username, $this->pass);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this ;
     }
