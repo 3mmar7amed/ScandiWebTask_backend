@@ -24,9 +24,10 @@ class Router
     public function resolve()
     {
         $url = $_SERVER['REQUEST_URI'] ?? '/';
-        $controller = new productController() ; 
-        $controller->getProducts() ; 
-        //call_user_func($this->Routes[$url]) ;
+        //$controller = new productController() ; 
+        //$controller->getProducts() ; 
+        echo ($this->Routes[$url]) ; 
+        call_user_func($this->Routes[$url]) ;
     }
 
 }
