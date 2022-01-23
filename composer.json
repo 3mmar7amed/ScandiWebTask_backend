@@ -1,0 +1,17 @@
+{
+    "name": "ammar/scandi-web_task",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "ammar",
+            "email": "45490495+3mmar7amed@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
+}
