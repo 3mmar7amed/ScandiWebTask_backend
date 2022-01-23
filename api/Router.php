@@ -26,7 +26,7 @@ class Router
         $url = $_SERVER['REQUEST_URI'] ?? '/';
         //$controller = new productController() ; 
         //$controller->getProducts() ; 
-        echo ($this->Routes[$url]) ; 
+        var_dump($this->Routes[$url]) ; 
         call_user_func($this->Routes[$url]) ;
     }
 
