@@ -8,8 +8,8 @@ include_once "api/Router.php";
 $router = new Router() ;
 
 
-$router->get('/', [productController::class, 'getProducts'] );
-$router->get('/products', [productController::class, 'getProducts']);
+$router->get('/', [new productController(), 'getProducts'] );
+$router->get('/products', [new productController(), 'getProducts']);
 $router->post('/addproduct', [productController::class, 'setProducts']);
 $router->delete('/Delete', [productController::class, 'deleteProducts']);
 
