@@ -1,10 +1,10 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use app\api\Router;
 use app\backend\controller\productController;
-include_once "Router.php" ;
+include_once "api/Router.php";
 $router = new Router() ;
 
 
