@@ -26,11 +26,10 @@ class productController
 
 
     public function setProducts() {
-        echo "set product" ;
         $requestData = json_decode(file_get_contents('php://input'), true);
         $product = new products() ;
         $product->setProducts($requestData);
-        var_dump(json_encode($requestData));
+        echo(json_encode($requestData));
    }
 
    public function deleteProducts() {
