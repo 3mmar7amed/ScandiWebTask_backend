@@ -12,8 +12,7 @@ use app\backend\model\products;
 
 class productController
 {
-    private $data ;
-    private ?int $post = null  ;
+    
     public function getProducts()
     {
         // this for opening the connections with database
