@@ -26,7 +26,6 @@ class productController
 
 
     public function setProducts() {
-        echo "here is set product " ;
         $requestData = json_decode(file_get_contents('php://input'), true);
         $product = new products() ;
         $product->setProducts($requestData);
