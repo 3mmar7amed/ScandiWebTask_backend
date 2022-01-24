@@ -15,8 +15,6 @@ class productController
     
     public function getProducts()
     {
-        // this for opening the connections with database
-        
         $product = new products() ;
         $search = $_GET['search'] ?? '' ;
         $products = $product->getProduct($search) ;
@@ -26,9 +24,6 @@ class productController
 
     }
 
-    public function try() {
-        var_dump($_SERVER) ; 
-    }
 
     public function setProducts() {
         $requestData = json_decode(file_get_contents('php://input'), true);
@@ -40,11 +35,11 @@ class productController
    public function deleteProducts() {
        $requestData = json_decode(file_get_contents('php://input'), true);
        $product = new products() ;
-       var_dump($requestData);
        $arr = $requestData['IDsArray'];
        foreach ($arr as $id) {
-           $product->deleteProduct($id) ;
+           echo $product->deleteProduct($id) ;
        }
+
 
    }
 }
