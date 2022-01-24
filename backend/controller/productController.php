@@ -16,6 +16,7 @@ class productController
     public function getProducts()
     {
         // this for opening the connections with database
+        
         $product = new products() ;
         $search = $_GET['search'] ?? '' ;
         $products = $product->getProduct($search) ;
