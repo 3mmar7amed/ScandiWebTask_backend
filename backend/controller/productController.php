@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods:POST,GET,DELETE');
-header('Access-Control-Allow-Headers: Access-Control-Allow-Headers , Content-Type , Access-Control-Allow-Methods , X-Requested-with');
+header('Access-Control-Allow-Headers:Lang ,  Access-Control-Allow-Headers , Content-Type , Access-Control-Allow-Methods , X-Requested-with');
 
 
 use app\api\Router;
@@ -26,6 +26,7 @@ class productController
 
 
     public function setProducts() {
+
         $requestData = json_decode(file_get_contents('php://input'), true);
         $product = new products() ;
         $product->setProducts($requestData);
