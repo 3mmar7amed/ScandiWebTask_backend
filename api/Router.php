@@ -24,9 +24,10 @@ class Router
     public function resolve()
     {
         $url = $_SERVER['REQUEST_URI'] ?? '/';
-         
-        //$controller = new productController() ; 
-        //$controller->getProducts() ; 
+        if (!$this->Routes[$url]) {
+            echo 'Page not found';
+            exit;
+        }
         call_user_func($this->Routes[$url]) ;
     }
 
