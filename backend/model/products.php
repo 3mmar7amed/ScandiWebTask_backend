@@ -32,7 +32,7 @@ class products
         $this->type = $product['Type'] ;
         $this->price = $product['Price'] ;
         $this->dimension = $product['dimension'] ;
-        $this->db->createProduct($this);
+        return $this->db->createProduct($this);
     }
     public function deleteProduct($id) {
 

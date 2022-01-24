@@ -26,9 +26,12 @@ class productController
 
 
     public function setProducts() {
+
         $requestData = json_decode(file_get_contents('php://input'), true);
         $product = new products() ;
         $product->setProducts($requestData);
+        $response ['status_code_header'] = 'HTTP/1.1 200 OK' ;
+        echo $response['status_code_header'];
    }
 
    public function deleteProducts() {

@@ -46,7 +46,7 @@ class Database
         $statement->bindValue(':type', $product->type);
         $statement->bindValue(':dimension', $product->dimension);
 
-        $statement->execute();
+        return $statement->execute();
 
     }
 
