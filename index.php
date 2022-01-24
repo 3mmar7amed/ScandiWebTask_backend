@@ -10,8 +10,7 @@ $router = new Router() ;
 
 $router->get('/', [new productController(), 'getProducts'] );
 $router->get('/products', [new productController(), 'getProducts']);
-$router->post('/addproduct', [new productController(), 'setProducts']);
-$router->get('/addProduct', [new productController(), 'setProducts']);
+$router->post('/addProduct', [new productController(), 'setProducts']);
 $router->delete('/Delete', [new productController(), 'deleteProducts']);
 
 $router->resolve();
