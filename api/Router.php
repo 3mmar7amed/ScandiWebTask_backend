@@ -24,7 +24,7 @@ class Router
     public function resolve()
     {
         $url = $_SERVER['REQUEST_URI'] ?? '/';
-         var_dump($_SERVER) ; 
+         
         //$controller = new productController() ; 
         //$controller->getProducts() ; 
         call_user_func($this->Routes[$url]) ;
