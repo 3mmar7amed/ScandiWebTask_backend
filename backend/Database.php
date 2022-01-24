@@ -35,7 +35,7 @@ class Database
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createProduct(Products $product)
+    public function createProduct(Products $product): bool
     {
 
         $statement = $this->pdo->prepare("INSERT INTO storeproducts (price, name, SKU, type , dimension)

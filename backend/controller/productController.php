@@ -1,6 +1,5 @@
 <?php
 namespace app\backend\controller ;
-header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods:POST,GET,DELETE');
@@ -24,14 +23,11 @@ class productController
 
     }
 
-
     public function setProducts() {
-
-        $requestData = json_decode(file_get_contents('php://input'), true);
         $product = new products() ;
-        $product->setProducts($requestData);
-        $response ['status'] = '200 OK' ;
-        echo $response['status'];
+        $requestData = json_decode(file_get_contents('php://input'), true);
+        echo $product->setProducts($requestData);
+
    }
 
    public function deleteProducts() {
