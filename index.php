@@ -7,7 +7,6 @@ use app\backend\controller\productController;
 include_once "api/Router.php";
 $router = new Router() ;
 
-var_dump($_SERVER) ; 
 
 $router->get('/', [new productController(), 'getProducts'] );
 $router->get("/products", [new productController(), 'getProducts']);
