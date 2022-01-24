@@ -29,7 +29,6 @@ class productController
         $requestData = json_decode(file_get_contents('php://input'), true);
         $product = new products() ;
         $product->setProducts($requestData);
-        echo(json_encode($requestData));
    }
 
    public function deleteProducts() {
