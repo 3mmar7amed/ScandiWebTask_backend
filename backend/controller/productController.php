@@ -26,8 +26,8 @@ class productController
     public function setProducts() {
         $product = new products() ;
         $requestData = json_decode(file_get_contents('php://input'), true);
-        echo $product->setProducts($requestData);
-
+        $product->setProducts($requestData);
+        echo $response['status'] = 200 ;
    }
 
    public function deleteProducts() {
@@ -37,7 +37,6 @@ class productController
        foreach ($arr as $id) {
            $product->deleteProduct($id) ;
        }
-
-
+       echo $response['status'] = 200 ;
    }
 }
