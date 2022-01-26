@@ -27,7 +27,9 @@ class productController
         $product = new products() ;
         $requestData = json_decode(file_get_contents('php://input'), true);
         $product->setProducts($requestData);
-        echo $response['status'] = 200 ;
+        $response['status_code_header'] = 'HTTP/1.1 201 Created';
+        $response['body'] = null;
+        echo $response['body'];
    }
 
    public function deleteProducts() {
@@ -37,6 +39,8 @@ class productController
        foreach ($arr as $id) {
            $product->deleteProduct($id) ;
        }
-       echo $response['status'] = 200 ;
+       $response['status_code_header'] = 'HTTP/1.1 200 OK';
+       $response['body'] = null;
+       echo $response['body'] ;
    }
 }
