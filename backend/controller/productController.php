@@ -1,10 +1,12 @@
 <?php
 namespace app\backend\controller ;
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-header('Access-Control-Allow-Methods:POST,GET,DELETE');
-header('Access-Control-Allow-Headers:Lang ,  Access-Control-Allow-Headers , Content-Type , Access-Control-Allow-Methods , X-Requested-with');
 
+
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers,Access-Control-Allow-Methods, Authorization, X-Requested-With");
 
 use app\api\Router;
 use app\backend\model\products;
