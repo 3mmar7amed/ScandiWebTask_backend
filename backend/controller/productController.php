@@ -17,9 +17,7 @@ class productController
     public function getProducts()
     {
         $product = new products() ;
-        $search = $_GET['search'] ?? '' ;
-        $products = $product->getProduct($search) ;
-        $response ['status_code_header'] = 'HTTP/1.1 200 OK' ;
+        $products = $product->getProduct() ;
         $response['body'] = json_encode($products) ;
         echo $response['body'];
 
@@ -27,22 +25,18 @@ class productController
 
     public function setProducts() {
         $product = new products() ;
-        $requestData = json_decode(file_get_contents('php://input'), true);
-        $product->setProducts($requestData);
-        $response['status_code_header'] = 'HTTP/1.1 201 Created';
-        $response['body'] = null;
-        echo $response['body'];
+        $requestData = (array) json_decode(file_get_contents('php://input'), true);
+        $response['body'] = json_encode ($product->setProducts($requestData) );
+        echo $response['body'] ;
+
    }
 
    public function deleteProducts() {
-       $requestData = json_decode(file_get_contents('php://input'), true);
+       $IDsArray =(array) json_decode(file_get_contents('php://input'), true);
        $product = new products() ;
-       $arr = $requestData['IDsArray'];
-       foreach ($arr as $id) {
-           $product->deleteProduct($id) ;
-       }
-       $response['status_code_header'] = 'HTTP/1.1 200 OK';
-       $response['body'] = null;
+       $response['body'] = json_encode ($product->deleteProduct($IDsArray) ) ;
        echo $response['body'] ;
+
    }
+
 }

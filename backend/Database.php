@@ -22,14 +22,9 @@ class Database
         return $this ;
     }
 
-    public function getProducts($keyword = '')
+    public function getProducts()
     {
-        if ($keyword) {
-            $statement = $this->pdo->prepare('SELECT * FROM storeproducts WHERE name like :keyword ');
-            $statement->bindValue(":keyword", "%$keyword%");
-        } else {
-            $statement = $this->pdo->prepare('SELECT * FROM storeproducts ');
-        }
+        $statement = $this->pdo->prepare('SELECT * FROM storeproducts ');
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -56,7 +51,7 @@ class Database
             $statement->bindValue(':id', $id);
             if($id === '')
                 return false  ;
-            return $statement->execute();
+            $statement->execute();
 
 
     }
