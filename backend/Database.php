@@ -22,7 +22,7 @@ class Database
         return $this ;
     }
 
-    public function getProducts()
+    public function getProducts(): bool|array
     {
         $statement = $this->pdo->prepare('SELECT * FROM storeproducts ');
         $statement->execute();

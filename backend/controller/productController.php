@@ -17,8 +17,8 @@ class productController
     public function getProducts()
     {
         $product = new products() ;
-        $products = $product->getProduct() ;
-        $response['body'] = json_encode($products) ;
+        $response = $product->getProduct() ;
+        header($response['status_code_header']);
         echo $response['body'];
 
     }
@@ -26,7 +26,8 @@ class productController
     public function setProducts() {
         $product = new products() ;
         $requestData = (array) json_decode(file_get_contents('php://input'), true);
-        $response['body'] = json_encode ($product->setProducts($requestData) );
+        $response = $product->setProducts($requestData) ;
+        header($response['status_code_header']);
         echo $response['body'] ;
 
    }
@@ -34,7 +35,8 @@ class productController
    public function deleteProducts() {
        $IDsArray =(array) json_decode(file_get_contents('php://input'), true);
        $product = new products() ;
-       $response['body'] = json_encode ($product->deleteProduct($IDsArray) ) ;
+       $response = $product->deleteProduct($IDsArray) ;
+       header($response['status_code_header']);
        echo $response['body'] ;
 
    }
