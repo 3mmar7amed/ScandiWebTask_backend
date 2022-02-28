@@ -1,0 +1,10 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<phpunit xmlns="$LOCAL_SCHEMA$"-->
+<!--         colors="true"-->
+<!--         bootstrap="vendor/autoload.php"-->
+<!--         stopOnFailure="false">-->
+<!--    <testsuite name="Products">-->
+<!--        <directory>Tests</directory>-->
+<!--    </testsuite>-->
+
+<!--</phpunit>-->
