@@ -28,7 +28,6 @@ class Router
             echo 'Page not found';
             exit;
         }
-        var_dump($this->Routes[$url]);
         call_user_func($this->Routes[$url]) ;
     }
 

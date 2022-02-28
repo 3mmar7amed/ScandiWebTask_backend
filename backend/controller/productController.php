@@ -1,19 +1,13 @@
 <?php
 namespace app\backend\controller ;
 
-
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers,Access-Control-Allow-Methods, Authorization, X-Requested-With");
-
 use app\api\Router;
+use app\backend\model\Product;
 use app\backend\model\products;
 
 class productController
 {
-    
+
     public function getProducts()
     {
         $product = new products() ;
@@ -33,12 +27,11 @@ class productController
    }
 
    public function deleteProducts() {
-       $IDsArray =(array) json_decode(file_get_contents('php://input'), true);
        $product = new products() ;
+       $IDsArray =(array) json_decode(file_get_contents('php://input'), true);
        $response = $product->deleteProduct($IDsArray) ;
        header($response['status_code_header']);
        echo $response['body'] ;
-
    }
 
 }

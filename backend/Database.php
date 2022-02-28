@@ -1,5 +1,9 @@
 <?php
 namespace app\backend;
+use app\backend\model\BookProduct;
+use app\backend\model\DVDProduct;
+use app\backend\model\FurnitureProduct;
+use app\backend\model\Product;
 use app\backend\model\products ;
 use PDO;
 
@@ -22,15 +26,22 @@ class Database
         return $this ;
     }
 
-    public function getProducts(): bool|array
+    public function getProducts(): array
     {
-        $statement = $this->pdo->prepare('SELECT * FROM storeproducts ');
+        $statement = $this->pdo->prepare('SELECT * FROM storeproducts  ');
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getTheLastRecord(): array
+    {
+        $statement = $this->pdo->prepare('SELECT * FROM storeproducts ORDER BY id DESC LIMIT 1 ');
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createProduct(Products $product)
+    public function createFurnitureProduct(FurnitureProduct $product)
     {
 
         $statement = $this->pdo->prepare("INSERT INTO storeproducts (price, name, SKU, type , dimension)
@@ -45,15 +56,44 @@ class Database
 
     }
 
-    public function DeleteProduct($id) {
+    public function createDVDProduct(DVDProduct $product)
+    {
+
+        $statement = $this->pdo->prepare("INSERT INTO storeproducts (price, name, SKU, type , dimension)
+                VALUES (:price, :name, :SKU,:type , :dimension)");
+        $statement->bindValue(':price', $product->price);
+        $statement->bindValue(':name', $product->name);
+        $statement->bindValue(':SKU', $product->SKU);
+        $statement->bindValue(':type', $product->type);
+        $statement->bindValue(':dimension', $product->weight);
+
+        $statement->execute();
+
+    }
+    public function createBookProduct(BookProduct $product)
+    {
+
+        $statement = $this->pdo->prepare("INSERT INTO storeproducts (price, name, SKU, type , dimension)
+                VALUES (:price, :name, :SKU,:type , :dimension)");
+        $statement->bindValue(':price', $product->price);
+        $statement->bindValue(':name', $product->name);
+        $statement->bindValue(':SKU', $product->SKU);
+        $statement->bindValue(':type', $product->type);
+        $statement->bindValue(':dimension', $product->size);
+
+        $statement->execute();
+
+    }
+
+    public function DeleteProduct($id): bool
+    {
 
             $statement = $this->pdo->prepare('DELETE FROM storeproducts WHERE id = :id');
             $statement->bindValue(':id', $id);
             if($id === '')
                 return false  ;
             $statement->execute();
-
-
+            return true ;
     }
 
 

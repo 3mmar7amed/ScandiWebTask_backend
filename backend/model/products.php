@@ -5,12 +5,6 @@ use app\backend\Database;
 
 class products
 {
-    public ?string $id = null ;
-    public ?string $SKU = null ;
-    public ?string $name = null ;
-    public ?string $type = null ;
-    public ?float $price = null ;
-    public ?string $dimension = null ;
 
 
     private Database $db  ;
@@ -22,28 +16,29 @@ class products
 
     public function getProduct(): array
     {
-        return $this->db->getProducts();
+
+        $result = $this->db->getProducts();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
     }
 
-    public function setProducts($product): array
+    public function setProducts(array $product): array
     {
-        if(!$this->validateProduct((array)$product)) {
+        $hashmap['Book'] = new BookProduct() ;
+        $hashmap['DVD'] = new DVDProduct() ;
+        $hashmap['Furniture'] = new FurnitureProduct() ;
+
+        if(!$this->validateProduct($product)) {
                 return $this->unprocessableEntityResponse() ;
         }
 
-        $this->name = $product['Name'] ;
-        $this->SKU = $product['SKU'];
-        $this->type = $product['Type'] ;
-        $this->price = $product['Price'] ;
-        $this->dimension = $product['dimension'] ;
-        $this->db->createProduct($this);
-
-        $response['status_code_header'] = 'HTTP/1.1 201 Created';
-        $response['body'] = null;
-        return $response;
-        
+        $productType = $hashmap[$product['Type']] ;
+        return $productType->setProducts($product) ;
 
     }
+
+
     public function deleteProduct($IdsArray): array
     {
         if(! $this->validateIDsArray($IdsArray)) {
