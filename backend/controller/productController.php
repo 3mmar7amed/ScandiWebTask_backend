@@ -7,11 +7,11 @@ use app\backend\model\products;
 
 class productController
 {
+    public Product $product ;
 
     public function getProducts()
     {
-        $product = new products() ;
-        $response = $product->getProduct() ;
+        $response = $this->product->getProduct() ;
         header($response['status_code_header']);
         echo $response['body'];
 
@@ -27,9 +27,8 @@ class productController
    }
 
    public function deleteProducts() {
-       $product = new products() ;
        $IDsArray =(array) json_decode(file_get_contents('php://input'), true);
-       $response = $product->deleteProduct($IDsArray) ;
+       $response = $this->product->deleteProduct($IDsArray) ;
        header($response['status_code_header']);
        echo $response['body'] ;
    }

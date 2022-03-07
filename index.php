@@ -19,7 +19,6 @@ if ($method == "OPTIONS") {
 }
 $router = new Router() ;
 
-
 $router->get('/', [new productController(), 'getProducts'] );
 $router->get('/products', [new productController(), 'getProducts']);
 $router->post('/create', [new productController(), 'setProducts']);

@@ -3,41 +3,36 @@
 namespace app\backend\model;
 use app\backend\Database;
 
-class products
+class products extends Product
 {
-
-
-    private Database $db  ;
-
     public function __construct()
     {
-        $this->db = new Database() ;
+        parent::__construct() ;
     }
+
 
     public function getProduct(): array
     {
-
         $result = $this->db->getProducts();
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
         return $response;
     }
 
+
+
     public function setProducts(array $product): array
     {
         $hashmap['Book'] = new BookProduct() ;
         $hashmap['DVD'] = new DVDProduct() ;
         $hashmap['Furniture'] = new FurnitureProduct() ;
-
         if(!$this->validateProduct($product)) {
                 return $this->unprocessableEntityResponse() ;
         }
-
         $productType = $hashmap[$product['Type']] ;
         return $productType->setProducts($product) ;
 
     }
-
 
     public function deleteProduct($IdsArray): array
     {
@@ -55,7 +50,7 @@ class products
         return $response;
     }
 
-    private function validateProduct($input): bool
+    public function validateProduct($input): bool
     {
         if (! isset($input['Name'])) {
             return false;
@@ -75,7 +70,7 @@ class products
         return true;
     }
 
-    private function unprocessableEntityResponse(): array
+    public function unprocessableEntityResponse(): array
     {
         $response['status_code_header'] = 'HTTP/1.1 422 Unprocessable Entity';
         $response['body'] = json_encode([
@@ -84,12 +79,10 @@ class products
         return $response;
     }
 
-    private function validateIDsArray($array): bool
+    public function validateIDsArray($array): bool
     {
         if(! isset($array['IDsArray']))
             return false ;
         return true ;
     }
-
-
 }

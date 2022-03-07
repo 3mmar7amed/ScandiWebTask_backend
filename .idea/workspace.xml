@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd204129-4771-41e5-8b6d-946538f74ed8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tests/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tests/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controller/productController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/productController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/BookProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/BookProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/DVDProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/DVDProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/FurnitureProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/FurnitureProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/model/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/model/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +101,7 @@
       <recent name="C:\xampp\htdocs\ScandiWeb_Task\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.test.testSetFurnitureProduct">
+  <component name="RunManager" selected="PHPUnit.test.testSetDVDProduct">
     <configuration name="test.testSetBookProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="test" file="$PROJECT_DIR$/backend/tests/test.php" method="testSetBookProduct" scope="Method" />
       <method v="2" />
@@ -111,9 +116,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.test.testSetFurnitureProduct" />
-        <item itemvalue="PHPUnit.test.testSetBookProduct" />
         <item itemvalue="PHPUnit.test.testSetDVDProduct" />
+        <item itemvalue="PHPUnit.test.testSetBookProduct" />
+        <item itemvalue="PHPUnit.test.testSetFurnitureProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -141,6 +146,10 @@
       <workItem from="1645742344682" duration="11435000" />
       <workItem from="1645793894040" duration="1326000" />
       <workItem from="1645836552952" duration="16764000" />
+      <workItem from="1646090933950" duration="6972000" />
+      <workItem from="1646365098437" duration="4067000" />
+      <workItem from="1646424007198" duration="1411000" />
+      <workItem from="1646610905640" duration="907000" />
     </task>
     <servers />
   </component>

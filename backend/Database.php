@@ -56,7 +56,7 @@ class Database
 
     }
 
-    public function createDVDProduct(DVDProduct $product)
+    public function createProduct(Product $product)
     {
 
         $statement = $this->pdo->prepare("INSERT INTO storeproducts (price, name, SKU, type , dimension)
@@ -65,7 +65,7 @@ class Database
         $statement->bindValue(':name', $product->name);
         $statement->bindValue(':SKU', $product->SKU);
         $statement->bindValue(':type', $product->type);
-        $statement->bindValue(':dimension', $product->weight);
+        $statement->bindValue(':dimension', $product->dimension_OR_size_OR_weight);
 
         $statement->execute();
 
