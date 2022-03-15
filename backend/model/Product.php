@@ -20,19 +20,17 @@ abstract class Product
 
     abstract public function setProducts(array $product) ;
 
-    public function setProduct(array $product): array
+    public function setProduct(array $product , string $type): array
     {
         $this->type = $product['Type'] ;
         $this->name = $product['Name'] ;
         $this->SKU = $product['SKU'];
         $this->price = $product['Price'] ;
-        $this->dimension_OR_size_OR_weight = $product['dimension'] ;
+        $this->dimension_OR_size_OR_weight = $type;
         $this->db->createProduct($this) ;
         $response['status_code_header'] = 'HTTP/1.1 201 Created';
         $response['body'] = null;
         return $response;
     }
-
-
 
 }

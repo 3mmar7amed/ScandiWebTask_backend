@@ -18,6 +18,7 @@ class BookProduct extends Product
 
     public function setProducts(array $product): array
     {
-        return $this->setProduct($product) ;
+        $this->size = $product['dimension'] ;
+        return $this->setProduct($product , $this->size) ;
     }
 }

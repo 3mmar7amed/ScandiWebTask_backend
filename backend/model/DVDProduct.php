@@ -12,8 +12,9 @@ class DVDProduct extends Product
 
     public function setProducts(array $product): array
     {
+        $this->weight = $product['dimension'] ;
 
-       return $this->setProduct($product) ;
+        return $this->setProduct($product , $this->weight) ;
 
     }
 
